@@ -41,7 +41,7 @@ Pri spusteni burp suite je casto zapnuty Intercept, odporucam vypnut a komunikac
 
 Konfiguracia Brida vyzaduje cestu k python 2 binarke, Pyro server by mal byt nakonfigurovany spravne (localhost a 9999). Nastavit "Frida local", niekedy to vsak nejde a treba "Frida remote". Potom je nutne spustit Pyro server pomocou menu napravo (Start server), potom spustit aplikáciu (jej nazov je "cz.vutbr.pavol.obfuscation.experimental" a je nutne ho mat v konfigu), spustenie prebieha pomocou Spawn application. Pri zmene JS suboru za behu je nutne "Reload JS", pripadne "Spawn application" znova (istejsia varianta).
 
-Subor brida.js je vychodiskovy subor, ktory obsahuje skript pre vygenerovanie podpisu pre Allatori a je ho mozne pouzit. Skript je vlozeny ako metoda contextcustom1 a teda je pouzitelna v Intercept a Repeaterch taboch, odporucam pouzit Repeater, kedze automaticky vie upravit velkost payload, v Intercept je nutne to robit manualne. Odporucam postupovat takto:
+Subor brida.js je vychodiskovy subor, ktory obsahuje skript pre vygenerovanie podpisu pre Allatori a je ho mozne pouzit. Skript je vlozeny ako metoda contextcustom1 a teda je pouzitelna v Intercept a Repeaterch taboch, odporucam pouzit Repeater, kedze automaticky vie upravit velkost payload (Content-size), v Intercept je nutne to robit manualne. Odporucam postupovat takto:
 
  - jednotlive HTTP requesty su viditelne v Burp Suite v History tabe
  - odtial je mozne vybrany request presunut do Reapeater (bud pomocou Ctrl + R alebo pravy klik a send to repeater)
@@ -49,3 +49,4 @@ Subor brida.js je vychodiskovy subor, ktory obsahuje skript pre vygenerovanie po
  - nasledne oznacit cele telo poziadavky, prav klik a pouzit metodu contextcustom1
  - tym sa povodne telo nahradi novym, s validnym podpisom
 
+Backend server musi byt spusteny. Pre pripadne problemy odporucam pozriet navod na Brida (bud github wiki, pripadne https://techblog.mediaservice.net/2018/04/brida-a-step-by-step-user-guide/)
